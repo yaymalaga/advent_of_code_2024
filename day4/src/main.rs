@@ -1,3 +1,5 @@
+use common::Direction;
+
 use std::{
     fs::File,
     io::{BufRead, BufReader},
@@ -111,59 +113,6 @@ impl WordsBoard {
 
     fn is_within_bounds(&self, x: isize, y: isize) -> bool {
         x >= 0 && x < self.data[0].len() as isize && y >= 0 && y < self.data.len() as isize
-    }
-}
-
-enum Direction {
-    Top,
-    TopRight,
-    Right,
-    BottomRight,
-    Bottom,
-    BottomLeft,
-    Left,
-    TopLeft,
-}
-
-struct Offset {
-    x: isize,
-    y: isize,
-}
-
-impl Direction {
-    fn generate_directions_list() -> [Self; 8] {
-        [
-            Self::Top,
-            Self::TopRight,
-            Self::Right,
-            Self::BottomRight,
-            Self::Bottom,
-            Self::BottomLeft,
-            Self::Left,
-            Self::TopLeft,
-        ]
-    }
-
-    fn get_offset(direction: &Direction) -> Offset {
-        match direction {
-            Direction::Top => Offset { x: 0, y: 1 },
-            Direction::TopRight => Offset { x: 1, y: 1 },
-            Direction::Right => Offset { x: 1, y: 0 },
-            Direction::BottomRight => Offset { x: 1, y: -1 },
-            Direction::Bottom => Offset { x: 0, y: -1 },
-            Direction::BottomLeft => Offset { x: -1, y: -1 },
-            Direction::Left => Offset { x: -1, y: 0 },
-            Direction::TopLeft => Offset { x: -1, y: 1 },
-        }
-    }
-
-    fn apply_offset(direction: &Direction, x: isize, y: isize) -> Offset {
-        let offset = Self::get_offset(direction);
-
-        Offset {
-            x: x + offset.x,
-            y: y + offset.y,
-        }
     }
 }
 
