@@ -22,6 +22,10 @@ pub struct Position {
 }
 
 impl Direction {
+    pub fn generate_basic_directions_list() -> [Self; 4] {
+        [Self::Top, Self::Right, Self::Bottom, Self::Left]
+    }
+
     pub fn generate_directions_list() -> [Self; 8] {
         [
             Self::Top,
