@@ -1,12 +1,12 @@
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Direction {
     Top,
-    TopRight,
     Right,
-    BottomRight,
     Bottom,
-    BottomLeft,
     Left,
+    TopRight,
+    BottomRight,
+    BottomLeft,
     TopLeft,
 }
 
