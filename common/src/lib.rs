@@ -10,6 +10,7 @@ pub enum Direction {
     TopLeft,
 }
 
+#[derive(Debug, Clone, PartialEq)]
 pub struct Offset {
     pub x: isize,
     pub y: isize,
